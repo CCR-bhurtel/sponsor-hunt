@@ -21,7 +21,16 @@
 }
 
 .bar {
-    height: 3px;
-    width: 20px;
+    height: 3.7px;
+    width: 21px;
     background: var(--Orch);
+    margin-bottom: 4px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+}
+
+.btn {
+    box-shadow: 0px 2.36344px 4.72687px -2.36344px rgba(0, 0, 0, 0.1),
+        0px 4.72687px 7.09031px -1.18172px rgba(0, 0, 0, 0.1);
 }
