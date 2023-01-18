@@ -3,6 +3,7 @@ import SecondaryButton from '../../Button/Secondary';
 import Logo from '../../Logo';
 
 function Navbar() {
+    
     return (
         <div className="navContainer w-[100%] flex items-center justify-center mt-[1rem]">
             <div className="wrapper flex items-center justify-between w-[90%]">

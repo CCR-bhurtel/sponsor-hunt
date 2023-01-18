@@ -5,6 +5,7 @@
     --Orch: #241918;
     --Iron: #e5e5e5;
     --Smoke: #737373;
+    --Cultured: #f5f5f5;
 }
 @tailwind base;
 
@@ -16,8 +17,6 @@
     background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
 }
 
 .bar {
@@ -33,4 +32,32 @@
 .btn {
     box-shadow: 0px 2.36344px 4.72687px -2.36344px rgba(0, 0, 0, 0.1),
         0px 4.72687px 7.09031px -1.18172px rgba(0, 0, 0, 0.1);
+}
+
+.gradientBar {
+    width: 100%;
+    background: var(--gradient);
+    height: 2.5px;
+}
+
+.underline-gradient {
+    background: var(--gradient);
+    background-size: 100% 3px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+.feature:nth-child(odd) {
+    flex-direction: row;
+}
+
+.feature:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.gradient-bg-card {
+    background: url('../assets/Images/cardBg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }

@@ -11,6 +11,8 @@ module.exports = {
                 Iron: '#E5E5E5',
                 Cultured: '#F5F5F5',
                 Smoke: '#737373',
+                Cream: '#FEFEFF',
+                Lotion: '#FAFAFA',
             },
             screens: {
                 sm: '320px',
