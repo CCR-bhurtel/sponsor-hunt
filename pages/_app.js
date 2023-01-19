@@ -7,9 +7,7 @@ function MyApp({ Component, pageProps }) {
         <div className="font-Inter">
             <Navbar />
             <div className="content  flex items-center justify-center ">
-                <div className="content-wrapper max-w-[280px] md:max-w-[650px] lg:max-w-[1000px]">
-                    <Component {...pageProps} />
-                </div>
+                <Component {...pageProps} />
             </div>
 
             <div className="ml-[1rem]">

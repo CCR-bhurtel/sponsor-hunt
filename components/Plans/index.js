@@ -34,17 +34,20 @@ function Plans() {
     ];
     return (
         <div>
-            <SectionTitle text={'Unlock more paid brand deals for your content'} />
-            <div className="mt-2">
-                <SmallText
-                    text={
-                        'Forget agencies, be your own sales rep. We show you hot new brand deals so you can get clients faster.'
-                    }
-                    textApply={false}
-                    leadingTight={true}
-                />
+            <div className="text-part--plans max-w-[25rem]">
+                <SectionTitle text={'Unlock more paid brand deals for your content'} />
+                <div className="mt-2">
+                    <SmallText
+                        text={
+                            'Forget agencies, be your own sales rep. We show you hot new brand deals so you can get clients faster.'
+                        }
+                        textApply={false}
+                        leadingTight={true}
+                    />
+                </div>
             </div>
-            <div className="plans mt-2 flex flex-col items-center justify-center gap-2">
+
+            <div className="plans mt-2 flex flex-col gap-2 md:flex-row lg:gap-6 justify-center items-center">
                 {plans.map((plan, i) => (
                     <Plan key={plan.plan_id} details={plan} />
                 ))}

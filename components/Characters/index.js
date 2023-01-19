@@ -1,4 +1,5 @@
 import React from 'react';
+import ContentWrapper from '../Layouts/ContentWrapper';
 import SectionTitle from '../SectionTitle';
 import SmallText from '../SmallText';
 import Character from './Character';
@@ -37,22 +38,24 @@ function Characters() {
         },
     ];
     return (
-        <div className="p-3 rounded-md  flex flex-col   bg-Cultured">
-            <div className="sectionText mt-4">
-                <SectionTitle text={'Save time on outreach and focus on creating'} />
-                <div className="mt-2">
-                    <SmallText
-                        text={
-                            'Find brand deals and land clients on easy mode, so you can channel your energy on being a creator.'
-                        }
-                    />
+        <div className="p-6 rounded-md  min-w-[100vw]  bg-Cultured">
+            <ContentWrapper>
+                <div className="sectionText mt-4">
+                    <SectionTitle text={'Save time on outreach and focus on creating'} />
+                    <div className="mt-2">
+                        <SmallText
+                            text={
+                                'Find brand deals and land clients on easy mode, so you can channel your energy on being a creator.'
+                            }
+                        />
+                    </div>
                 </div>
-            </div>
-            <div className="characters flex flex-col items-center justify-center mt-2">
-                {characters.map((character, i) => (
-                    <Character key={i} item={character} />
-                ))}
-            </div>
+                <div className="characters flex flex-col  mt-2 md:grid md:grid-cols-3 gap-2 ">
+                    {characters.map((character, i) => (
+                        <Character key={i} item={character} />
+                    ))}
+                </div>
+            </ContentWrapper>
         </div>
     );
 }

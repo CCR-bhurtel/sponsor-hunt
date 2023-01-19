@@ -13,10 +13,15 @@
 
 @tailwind utilities;
 
+body {
+    overflow-x: hidden;
+}
+
 .gradient-text {
     background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-decoration-line: underline;
 }
 
 .bar {
@@ -37,10 +42,11 @@
 .gradientBar {
     width: 100%;
     background: var(--gradient);
-    height: 2.5px;
+    height: 2px;
 }
 
 .underline-gradient {
+    display: inline;
     background: var(--gradient);
     background-size: 100% 3px;
     background-repeat: no-repeat;
@@ -60,4 +66,51 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+.bars {
+    display: none;
+}
+.navoverlay {
+    display: none;
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+nav .navitem {
+    margin-right: 1rem;
+}
+@media screen and (max-width: 768px) {
+    .navoverlay {
+        display: block;
+    }
+    .bars {
+        display: block;
+    }
+
+    nav {
+        right: -200;
+        display: none;
+        transition: all 0.8s ease-in;
+    }
+    nav.active {
+        height: 100vh;
+        background: rgb(255, 255, 255);
+        position: absolute;
+        padding: 1rem;
+        top: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(80px);
+        border-radius: 5px 0 0 5px;
+    }
+
+    nav.active .navitem {
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
 }

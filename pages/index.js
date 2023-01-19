@@ -9,6 +9,8 @@ import Features from '../components/Features';
 import Characters from '../components/Characters';
 import Plans from '../components/Plans';
 import AwareText from '../components/AwareText.js';
+import ContentWrapper from '../components/Layouts/ContentWrapper';
+import Hero from '../components/Hero';
 export default function Home() {
     return (
         <div>
@@ -17,66 +19,43 @@ export default function Home() {
                 <meta name="description" content="sponsor hunt" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="mt-4">
-                <div className="hero">
-                    <div className="hero--text text-center">
-                        <div className="mix ">
-                            <BixMix text1={'Find live brand deals, land'} gradientText={'more paid collabs'} />
+            <ContentWrapper>
+                <div className="mt-4 md:mt-[4rem]">
+                    <Hero />
+                    <section className="misc mt-4">
+                        <div className="font-bold text-[1.3rem] md:text-[1.4rem] lg:text-[1.6rem] leading-tight">
+                            Securing paid collabs can take <br /> hours...or days. <br />
+                            <span className="gradient-text"> Land more deals, faster.</span>
                         </div>
-                        <div className="p1 leading-tight mt-3">
-                            <SmallText text={'Track 1000+'} inline={true} />
+                        <div className="mt-2 max-w-[490px] md:text-[1.2rem]">
                             <SmallText
-                                text={'companies that are paying creators for brand deals right now.'}
-                                underline={true}
-                                inline={true}
+                                textApply={false}
+                                text={
+                                    'We track brand deals in real-time, and send you the data to convert hot new leads into paying clients.'
+                                }
                             />
                         </div>
-                        <div className="p2 mt-2">
-                            <SmallText text={'In your inbox. Updated every day.'} />
-                        </div>
-                        <div className="buttons flex items-center mt-4 justify-center flex-col">
-                            <div className="primary">
-                                <PrimaryButton text="Get brand deals" />
-                            </div>
-                            <div className="secondary mt-3">
-                                <SecondaryButton text="View live demo" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="video mt-4">
-                        <VideoContainer />
-                    </div>
+                    </section>
+                    <section className="mt-[2rem]">
+                        <HowItWorks />
+                    </section>
+                    <section className="mt-4">
+                        <Features />
+                    </section>
                 </div>
-                <section className="misc mt-4">
-                    <div className="font-bold text-[1.3rem] leading-tight">
-                        Securing paid collabs can take hours...or days. <br /> So
-                        <span className="gradient-text"> Land more deals, faster.</span>
-                    </div>
-                    <div className="mt-2">
-                        <SmallText
-                            textApply={false}
-                            text={
-                                'We track brand deals in real-time, and send you the data to convert hot new leads into paying clients.'
-                            }
-                        />
-                    </div>
-                </section>
-                <section className="mt-4">
-                    <HowItWorks />
-                </section>
-                <section className="mt-4">
-                    <Features />
-                </section>
-                <section className="mt-4 bg-Cultured rounded-lg ">
-                    <Characters />
-                </section>
+            </ContentWrapper>
+
+            <section className="mt-4 bg-Cultured rounded-lg ">
+                <Characters />
+            </section>
+            <ContentWrapper>
                 <section className="mt-4">
                     <Plans />
                 </section>
                 <section className="mt-4">
                     <AwareText />
                 </section>
-            </div>
+            </ContentWrapper>
         </div>
     );
 }

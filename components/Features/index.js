@@ -5,6 +5,7 @@ import rocket from '../../assets/Images/rocket.png';
 import venn from '../../assets/Images/venn_diagram.png';
 import cycle from '../../assets/Images/cycle.png';
 import Feature from './Feature';
+import SectionTitle from '../SectionTitle';
 
 function Features() {
     const items = [
@@ -40,10 +41,17 @@ function Features() {
         },
     ];
     return (
-        <div className="flex flex-col items-center justify-center">
-            {items.map((item, i) => (
-                <Feature feature={item} key={i} />
-            ))}
+        <div className="mt-[3rem] mb-[1rem]">
+            <div className="max-w-[340px]">
+                <SectionTitle text={'Super charge your paid brand deal outreach'} />
+            </div>
+            <div className="flex justify-center items-center">
+                <div className="flex flex-col items-center justify-center max-w-[90%]">
+                    {items.map((item, i) => (
+                        <Feature feature={item} key={i} />
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }

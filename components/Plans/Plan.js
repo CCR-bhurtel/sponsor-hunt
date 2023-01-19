@@ -12,11 +12,11 @@ function Plan({ details: { plan_id, name, desc, features, price } }) {
             }  border-Iron  rounded-xl p-4`}
         >
             <SectionTitle text={name} />
-            <p className="font-medium text-Orch text-[1rem] leading-tight tracking-tight mt-2">{desc}</p>
-            <p className="price font-medium my-6">
+            <p className="font-medium text-Orch text-[1rem] leading-tight tracking-tight mt-2 max-w-[15rem]">{desc}</p>
+            <p className="price font-medium my-4">
                 $<span className="font-semibold text-[1.7rem]">{price}</span>/month
             </p>
-            <div className="mt-6">
+            <div className="mt-6 min-h-[9rem]">
                 {features.map((feature) => {
                     return (
                         <div className="flex flex-row items-center justify-start mb-4">

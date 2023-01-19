@@ -23,17 +23,19 @@ function HowItWorks() {
         <div className="section">
             <div className="sectiontitle text-Orch">
                 <SectionTitle text={'How it Works'} />
-                <div className="mechanisms mt-[-0.8rem]">
+                <div className="mechanisms mt-[-0.8rem] flex flex-col md:flex-row md:gap-2 ">
                     {list.map((item, i) => (
                         <div key={i} className="item mt-4">
-                            <div className="itemTitle font-semibold text-[1.2rem] inline">
+                            <div className="itemTitle font-semibold text-[1.2rem] md:text-[0.9rem] lg:text-[1.1rem] inline">
                                 {i + 1}. {item.normalText}{' '}
-                                <div className="inline-flex flex-col items-center justify-center">
+                                <div className="inline-flex flex-col items-center justify-center ">
                                     {item.textWithUnderline}
                                     <div className="gradientBar mt-[-3px]"></div>
                                 </div>
                             </div>
-                            <p className="text-Smoke font-medium leading-tight ml-5">{item.paragraph}</p>
+                            <p className="text-Smoke font-medium leading-tight ml-5 md:text-[0.9rem] md:ml-1 md:text-center md:max-w-[200px] ">
+                                {item.paragraph}
+                            </p>
                         </div>
                     ))}
                 </div>
