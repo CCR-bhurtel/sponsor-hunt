@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Confetti from 'react-dom-confetti';
 // primary button
-function index({ text, link }) {
+function PrimaryButton({ text, link }) {
     const [isRotate, setIsRotate] = useState(false);
     const [isConfetti, setIsConfetti] = useState(false);
     const [translate, setTranslate] = useState(0);
@@ -62,4 +62,4 @@ function index({ text, link }) {
     );
 }
 
-export default index;
+export default PrimaryButton;
