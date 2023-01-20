@@ -29,7 +29,7 @@ function Characters() {
         {
             icon: '✅',
             title: 'Verified ad deals only',
-            desc: ' Manually verified company information + 100% legit brand deals.',
+            desc: ' Manually verified brand info and key contact data to the decision maker.',
         },
         {
             icon: '🔥',
@@ -45,7 +45,7 @@ function Characters() {
                     <div className="mt-2">
                         <SmallText
                             text={
-                                'Find brand deals and land clients on easy mode, so you can channel your energy on being a creator.'
+                                'Find brand deals and land clients on easy mode. We give you right brands and email to reach out to.'
                             }
                         />
                     </div>

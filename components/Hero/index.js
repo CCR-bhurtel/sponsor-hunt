@@ -28,7 +28,7 @@ function Hero() {
 
                 <div className="buttons flex items-center mt-4 justify-center flex-col md:mb-6 md:mt-6">
                     <div className="primary">
-                        <PrimaryButton text="Get brand deals" />
+                        <PrimaryButton text="Get brand deals" link={'#plans'} />
                     </div>
                     <div className="secondary mt-3">
                         <SecondaryButton text="View live demo" />

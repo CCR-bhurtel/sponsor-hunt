@@ -12,7 +12,9 @@
 @tailwind components;
 
 @tailwind utilities;
-
+html {
+    scroll-behavior: smooth;
+}
 body {
     overflow-x: hidden;
 }
@@ -82,6 +84,11 @@ nav {
 
 nav .navitem {
     margin-right: 1rem;
+}
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
 }
 @media screen and (max-width: 768px) {
     .navoverlay {

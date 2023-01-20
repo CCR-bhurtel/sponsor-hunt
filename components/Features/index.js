@@ -29,7 +29,7 @@ function Features() {
         },
         {
             text1: 'All have',
-            gradientText: ' verified brand deals and company info. ',
+            gradientText: ' verified brand deals and decision maker contact info. ',
             text2: 'Unlock endless paid brand collab potential.',
             img: cycle.src,
         },
