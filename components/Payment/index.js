@@ -15,6 +15,8 @@ import {
 import axios from 'axios';
 
 function PaymentForm(props) {
+    const [render, setRender] = useState(0);
+
     const stripe = useStripe();
     const elements = useElements();
     const [showCVC, setShowCVC] = useState(false);
@@ -26,10 +28,11 @@ function PaymentForm(props) {
         cardCvc: false,
         postcode: '',
     });
+    useEffect(() => {
+        console.log(render);
+    }, [render]);
 
-    const CNE = elements.getElement(CardNumberElement);
-
-    const [showLoading, setShowLoading] = useState(false);
+    const [showLoading, setShowLoading] = useState(true);
 
     const { name, email, cardNumber, cardExpiry, cardCvc } = userData;
 
@@ -45,9 +48,37 @@ function PaymentForm(props) {
         }
     }, [name, email, cardNumber, cardExpiry, cardCvc, userData]);
 
+    const changeField = (e) => {
+        switch (e.elementType) {
+            case 'cardNumber':
+                if (!cardExpiry) {
+                    elements.getElement(CardExpiryElement).focus();
+                } else if (!cardCvc) {
+                    elements.getElement(CardCvcElement).focus();
+                }
+                break;
+            case 'cardExpiry':
+                if (!cardCvc) {
+                    elements.getElement(CardCvcElement).focus();
+                } else if (!cardExpiry) {
+                    elements.getElement(CardExpiryElement).focus();
+                }
+                break;
+            case 'cardCvc':
+                if (!cardNumber) {
+                    elements.getElement(CardNumberElement).focus();
+                } else if (!cardExpiry) {
+                    elements.getElement(CardExpiryElement).focus();
+                }
+            default:
+                break;
+        }
+    };
+
     const onChangeHandler = (e, isCard) => {
         if (isCard) {
             if (e.complete) {
+                changeField(e);
                 setUserData({ ...userData, [e.elementType]: true });
             } else {
                 setUserData({ ...userData, [e.elementType]: false });
@@ -59,7 +90,6 @@ function PaymentForm(props) {
             });
         }
     };
-
     const showCVCHandler = () => {
         setShowCVC(true);
     };
@@ -137,60 +167,61 @@ function PaymentForm(props) {
     };
 
     return (
-        <ElementsConsumer>
-            {({ elements, stripe }) => {
-                return (
-                    <>
-                        <div
-                            style={{
-                                display: showLoading ? 'block' : 'none',
-                                position: 'absolute',
-                                transform: 'translate(-50%, -50%)',
+        <div>
+            <ElementsConsumer>
+                {({ elements, stripe }) => {
+                    return (
+                        <>
+                            <div
+                                style={{
+                                    display: showLoading ? 'block' : 'none',
+                                    position: 'absolute',
+                                    transform: 'translate(-50%, -50%)',
 
-                                top: '50%',
-                                left: '50%',
-                            }}
-                            className="loader"
-                        >
-                            <img src={Rolling.src} alt="Roller" />
-                        </div>
-                        <form
-                            autoComplete="off"
-                            id="payment-form"
-                            className="w-full flex flex-col gap-1.5"
-                            style={{ opacity: showLoading ? 0 : 1 }}
-                        >
-                            <div>
-                                <input
-                                    id="name"
-                                    name="name"
-                                    type="text"
-                                    onChange={(e) => onChangeHandler(e, false)}
-                                    value={userData.name}
-                                    autoComplete="off"
-                                    required
-                                    className="w-full h-[56px] px-[17px] rounded-lg  text-gray-500 border focus:border-gray-400 duration-300 outline-none"
-                                    placeholder="Name"
-                                />
+                                    top: '50%',
+                                    left: '50%',
+                                }}
+                                className="loader"
+                            >
+                                <img src={Rolling.src} alt="Roller" />
                             </div>
-                            <div>
-                                <input
-                                    id="email"
-                                    name="email"
-                                    type="email"
-                                    onChange={(e) => onChangeHandler(e, false)}
-                                    value={userData.email}
-                                    autoComplete="off"
-                                    required
-                                    className="w-full h-[56px] px-[17px] rounded-lg text-gray-500 border focus:border-gray-400 duration-300 outline-none"
-                                    placeholder="Email"
-                                />
-                            </div>
+                            <form
+                                autoComplete="off"
+                                id="payment-form"
+                                className="w-full flex flex-col gap-1.5"
+                                style={{ opacity: showLoading ? 0 : 1 }}
+                            >
+                                <div>
+                                    <input
+                                        id="name"
+                                        name="name"
+                                        type="text"
+                                        onChange={(e) => onChangeHandler(e, false)}
+                                        value={userData.name}
+                                        autoComplete="off"
+                                        required
+                                        className="w-full h-[56px] px-[17px] rounded-lg  text-gray-500 border focus:border-gray-400 duration-300 outline-none"
+                                        placeholder="Name"
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        id="email"
+                                        name="email"
+                                        type="email"
+                                        onChange={(e) => onChangeHandler(e, false)}
+                                        value={userData.email}
+                                        autoComplete="off"
+                                        required
+                                        className="w-full h-[56px] px-[17px] rounded-lg text-gray-500 border focus:border-gray-400 duration-300 outline-none"
+                                        placeholder="Email"
+                                    />
+                                </div>
 
-                            <div className="">
-                                <div className="relative w-full h-[56px] bg-white border focus:border-gray-400 rounded-lg">
-                                    <div className="flex items-center absolute inset-y-0 left-3 right-3 gap-1 overflow-hidden">
-                                        {/* <span>
+                                <div className="">
+                                    <div className="relative w-full h-[56px] bg-white border focus:border-gray-400 rounded-lg">
+                                        <div className="flex items-center absolute inset-y-0 left-3 right-3 gap-1 overflow-hidden">
+                                            {/* <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-6 opacity-50"
@@ -200,67 +231,69 @@ function PaymentForm(props) {
             </svg>
           </span> */}
 
-                                        <CardNumberElement
-                                            onFocus={closeCVCHandler}
-                                            onChange={(e) => onChangeHandler(e, true)}
-                                            onReady={(e) => {
-                                                setShowLoading(false);
-                                            }}
-                                            options={CARD_NUMBER_OPTIONS}
-                                            name="cardNumber"
-                                            className="w-full  text-md text-gray-500 outline-none"
-                                        />
-
-                                        {/* <input type="text" name="Card" placeholder="Card Number" /> */}
-                                        <div
-                                            onClick={showCVCHandler}
-                                            className={`flex gap-2 ${
-                                                showCVC ? 'translate-x-0' : 'translate-x-14'
-                                            } duration-300`}
-                                        >
-                                            <CardExpiryElement
-                                                onFocus={showCVCHandler}
+                                            <CardNumberElement
+                                                onFocus={closeCVCHandler}
                                                 onChange={(e) => onChangeHandler(e, true)}
-                                                name="expiryDate"
-                                                options={CARD_OPTIONS}
-                                                className="w-16 text-lg text-gray-500 text-center outline-none"
+                                                onReady={(e) => {
+                                                    setShowLoading(false);
+                                                }}
+                                                options={CARD_NUMBER_OPTIONS}
+                                                name="cardNumber"
+                                                className="w-full  text-md text-gray-500 outline-none"
                                             />
 
-                                            <CardCvcElement
-                                                options={CARD_OPTIONS}
-                                                onChange={(e) => onChangeHandler(e, true)}
-                                                name="cvc"
-                                                className="w-12 text-lg text-gray-500 text-center outline-none"
-                                            />
+                                            <div
+                                                onClick={showCVCHandler}
+                                                className={`flex gap-2 ${
+                                                    showCVC ? 'translate-x-0' : 'translate-x-14'
+                                                } duration-300`}
+                                            >
+                                                <CardExpiryElement
+                                                    onFocus={showCVCHandler}
+                                                    onChange={(e) => onChangeHandler(e, true)}
+                                                    name="expiryDate"
+                                                    options={CARD_OPTIONS}
+                                                    className="w-16 text-lg text-gray-500 text-center outline-none"
+                                                />
+
+                                                <CardCvcElement
+                                                    options={CARD_OPTIONS}
+                                                    onChange={(e) => onChangeHandler(e, true)}
+                                                    name="cvc"
+                                                    className="w-12 text-lg text-gray-500 text-center outline-none"
+                                                />
+                                            </div>
+
+                                            {/* <input type="text" name="Card" placeholder="Card Number" /> */}
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div>
-                                <button
-                                    onClick={activateButton ? handleSubmit : donothing}
-                                    className={` w-full h-[54px] text-[17px] font-semibold bg-black ${
-                                        submitting ? 'opacity-60' : activateButton ? 'cursor-pointer' : 'opacity-20'
-                                    }
+                                <div>
+                                    <button
+                                        onClick={activateButton ? handleSubmit : donothing}
+                                        className={` w-full h-[54px] text-[17px] font-semibold bg-black ${
+                                            submitting ? 'opacity-60' : activateButton ? 'cursor-pointer' : 'opacity-20'
+                                        }
 
                  text-white flex justify-center items-center rounded-xl  mt-2`}
-                                >
-                                    {submitting ? (
-                                        <>
-                                            <img src={Rolling.src} className="h-[80px]" />
-                                        </>
-                                    ) : (
-                                        ` Pay $${props.price}`
-                                    )}
-                                </button>
-                            </div>
-                        </form>
-                    </>
-                );
-            }}
-        </ElementsConsumer>
+                                    >
+                                        {submitting ? (
+                                            <>
+                                                <img src={Rolling.src} className="h-[80px]" />
+                                            </>
+                                        ) : (
+                                            ` Pay $${props.price}`
+                                        )}
+                                    </button>
+                                </div>
+                            </form>
+                        </>
+                    );
+                }}
+            </ElementsConsumer>
+        </div>
     );
 }
 
-export default PaymentForm;
+export default React.memo(PaymentForm);

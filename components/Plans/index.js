@@ -2,6 +2,7 @@ import React from 'react';
 import SectionTitle from '../SectionTitle';
 import SmallText from '../SmallText';
 import Plan from './Plan';
+import { useEffect } from 'react';
 
 function Plans() {
     const plans = [
@@ -49,11 +50,11 @@ function Plans() {
 
             <div className="plans mt-2 flex flex-col gap-2 md:flex-row lg:gap-6 justify-center items-center">
                 {plans.map((plan, i) => (
-                    <Plan key={i} details={plan} />
+                    <Plan key={Math.random() * 100} details={plan} />
                 ))}
             </div>
         </div>
     );
 }
 
-export default Plans;
+export default React.memo(Plans);

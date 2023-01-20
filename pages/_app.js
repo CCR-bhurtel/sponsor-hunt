@@ -4,7 +4,7 @@ import '../styles/globals.css';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
-
+import { useEffect } from 'react';
 function MyApp({ Component, pageProps }) {
     return (
         <div className="font-Inter">

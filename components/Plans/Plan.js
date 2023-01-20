@@ -17,7 +17,10 @@ function Plan({ details: { plan_id, name, desc, features, price } }) {
         setIsFormError(false);
     };
     const modalOpenHandler = () => {
-        setIsModalOpen(true);
+        //waiting for confetti
+        setTimeout(() => {
+            setIsModalOpen(true);
+        }, 400);
     };
     const controlErrorHandler = (error) => {
         setFormError(error);
@@ -27,34 +30,34 @@ function Plan({ details: { plan_id, name, desc, features, price } }) {
         <div
             className={`${
                 name === 'Beginner' ? 'bg-Lotion border-[1px]' : 'gradient-bg-card'
-            }  border-Iron  rounded-xl p-4`}
+            }  border-Iron  rounded-xl p-4 `}
         >
             <Transition show={isModalOpen} as={Fragment}>
                 <Dialog onClose={closeModalHandler}>
                     {/* className="relative z-50" */}
                     {/* The backdrop, rendered as a fixed sibling to the panel container */}
                     <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
+                        as={'div'}
+                        // enter="ease-out duration-300"
+                        // enterFrom="opacity-0"
+                        // enterTo="opacity-100"
+                        // leave="ease-in duration-200"
+                        // leaveFrom="opacity-100"
+                        // leaveTo="opacity-0"
                     >
-                        <div className="fixed inset-0 bg-black backdrop-blur-md bg-opacity-30" aria-hidden="true" />
+                        <div className="fixed inset-0  bg-black backdrop-blur-md bg-opacity-30" aria-hidden="true" />
                     </Transition.Child>
 
                     {/* Full-screen container to center the panel */}
 
                     <Transition.Child
                         as={Fragment}
-                        enter="ease duration-200"
-                        enterFrom="translate-y-full opacity-0"
-                        enterTo="translate-y-0 opacity-100"
-                        leave="ease-out duration-200"
-                        leaveFrom="translate-y-0 opacity-100"
-                        leaveTo="translate-y-full opacity-0"
+                        // enter="ease duration-200"
+                        // enterFrom="translate-y-full opacity-0"
+                        // enterTo="translate-y-0 opacity-100"
+                        // leave="ease-out duration-200"
+                        // leaveFrom="translate-y-0 opacity-100"
+                        // leaveTo="translate-y-full opacity-0"
                     >
                         <div className={`fixed inset-0 flex items-end sm:items-center justify-center sm:p-4`}>
                             <Dialog.Panel className="sm:max-w-sm bg-white w-full sm:w-[390px] mx-auto p-4 backdrop-blur-lg bg-white/80 rounded-xl">
@@ -84,17 +87,18 @@ function Plan({ details: { plan_id, name, desc, features, price } }) {
                                     ) : (
                                         <>
                                             <div>
-                                                <h2 className="text-3xl sm:text-[35px] font-semibold">${price}</h2>
+                                                <h2 className="text-3xl sm:text-[35px] font-semibold gradient-text">${price}</h2>
                                                 <h3 className="text-lg sm:text-[20px] font-medium mt-2">{name} plan</h3>
                                             </div>
                                             <Transition
                                                 show={isModalFormOpen}
-                                                enter="transition ease duration-500 transform opacity-0"
-                                                enterFrom="-translate-y-0"
-                                                enterTo="translate-y-auto opacity-100"
-                                                leave="transition ease duration-500 transform"
-                                                leaveFrom="translate-y-auto"
-                                                leaveTo="translate-y-0 opacity-0"
+                                                as={'div'}
+                                                // enter="transition ease duration-500 transform opacity-0"
+                                                // enterFrom="-translate-y-0"
+                                                // enterTo="translate-y-auto opacity-100"
+                                                // leave="transition ease duration-500 transform"
+                                                // leaveFrom="translate-y-auto"
+                                                // leaveTo="translate-y-0 opacity-0"
                                             >
                                                 <Payment
                                                     onError={controlErrorHandler}
@@ -135,4 +139,4 @@ function Plan({ details: { plan_id, name, desc, features, price } }) {
     );
 }
 
-export default Plan;
+export default React.memo(Plan);
