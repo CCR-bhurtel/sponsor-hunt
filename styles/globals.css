@@ -65,7 +65,7 @@ body {
 }
 
 .gradient-bg-card {
-    background: url('../assets/Images/cardBg.png');
+    background: url('/cardBg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

@@ -87,7 +87,9 @@ function Plan({ details: { plan_id, name, desc, features, price } }) {
                                     ) : (
                                         <>
                                             <div>
-                                                <h2 className="text-3xl sm:text-[35px] font-semibold gradient-text">${price}</h2>
+                                                <h2 className="text-3xl sm:text-[35px] font-semibold gradient-text">
+                                                    ${price}
+                                                </h2>
                                                 <h3 className="text-lg sm:text-[20px] font-medium mt-2">{name} plan</h3>
                                             </div>
                                             <Transition

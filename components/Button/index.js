@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import Confetti from 'react-dom-confetti';
 // primary button
-function PrimaryButton({ text, link }) {
+function PrimaryButton({ text, link, source }) {
     const [isRotate, setIsRotate] = useState(false);
     const [isConfetti, setIsConfetti] = useState(false);
     const [translate, setTranslate] = useState(0);
     const changeRotateHandler = () => {
-        setIsRotate(true);
-        // setTimeout(() => {
-        //     // sendModalItem(id, title, price);
-        //     // props.onOpen();
-        // }, 300);
+        if (source != 'hero') {
+            setIsRotate(true);
+            // setTimeout(() => {
+            //     // sendModalItem(id, title, price);
+            //     // props.onOpen();
+            // }, 300);
 
-        setTimeout(() => {
-            setIsRotate(false);
-        }, 700);
+            setTimeout(() => {
+                setIsRotate(false);
+            }, 700);
 
-        setIsConfetti(true);
-        setTimeout(() => {
-            setIsConfetti(false);
-        }, 100);
+            setIsConfetti(true);
+            setTimeout(() => {
+                setIsConfetti(false);
+            }, 100);
+        }
     };
     const config = {
         angle: 280,
