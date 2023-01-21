@@ -46,7 +46,7 @@ function Features() {
                 <SectionTitle text={'Super charge your paid brand deal outreach'} />
             </div>
             <div className="flex justify-center items-center">
-                <div className="flex flex-col items-center justify-center max-w-[90%]">
+                <div className="flex flex-col items-center justify-center max-w-[95%]">
                     {items.map((item, i) => (
                         <Feature feature={item} key={i} />
                     ))}

@@ -44,7 +44,7 @@ function Navbar() {
                     >
                         <span className="text-white mb-[2px]">+</span>
                     </div>
-                    <NavItem text={'Pricing'} link={'/pricing'} />
+                    <NavItem text={'Pricing'} link={'/#plans'} />
                     <NavItem text={'Login'} link={'/login'} />
 
                     <SecondaryButton text={'View live demo'} />
