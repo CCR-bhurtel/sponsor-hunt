@@ -30,7 +30,7 @@ function Plan({ details: { plan_id, name, desc, features, price } }) {
         <div
             className={`${
                 name === 'Beginner' ? 'bg-Lotion border-[1px]' : 'gradient-bg-card'
-            }  border-Iron  rounded-xl p-4 `}
+            }  border-Iron  rounded-xl p-4 lsm:m-6 md:m-0`}
         >
             <Transition show={isModalOpen} as={Fragment}>
                 <Dialog onClose={closeModalHandler}>
@@ -120,7 +120,9 @@ function Plan({ details: { plan_id, name, desc, features, price } }) {
                 </Dialog>
             </Transition>
             <SectionTitle text={name} />
-            <p className="font-medium text-Orch text-[1rem] leading-tight tracking-tight mt-2 max-w-[15rem]">{desc}</p>
+            <p className="font-medium text-Orch text-[1rem] lsm:text-[1.1rem] leading-tight tracking-tight mt-2 max-w-[17rem]">
+                {desc}
+            </p>
             <p className="price font-medium my-4">
                 $<span className="font-semibold text-[1.7rem]">{price}</span>/month
             </p>

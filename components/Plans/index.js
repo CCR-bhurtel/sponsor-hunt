@@ -37,7 +37,7 @@ function Plans() {
         <div id="plans">
             <div className="text-part--plans max-w-[26rem]">
                 <SectionTitle text={'Unlock more paid brand deals for your content'} />
-                <div className="mt-2 md:text-[1.2rem]">
+                <div className="mt-2 lsm:text-[1.2rem] md:text-[1.4rem]">
                     <SmallText
                         text={
                             'Forget agencies, be your own sales rep. We show you hot new brand deals so you can get clients faster.'
@@ -48,7 +48,7 @@ function Plans() {
                 </div>
             </div>
 
-            <div className="plans mt-2 flex flex-col gap-2 md:flex-row lg:gap-6 justify-center items-center">
+            <div className="plans mt-2 md:flex  flex-col gap-2 md:flex-row lg:gap-6 justify-center items-center">
                 {plans.map((plan, i) => (
                     <Plan key={Math.random() * 100} details={plan} />
                 ))}

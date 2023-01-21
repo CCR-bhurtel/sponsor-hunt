@@ -7,7 +7,7 @@ import VideoContainer from '../VideoContainer';
 
 function Hero() {
     return (
-        <div className="hero">
+        <div className="hero ">
             <div className="hero--text text-center flex items-center justify-center flex-col">
                 <div className="mix ">
                     <BixMix text1={'Find live brand deals, land'} gradientText={'more paid collabs'} />

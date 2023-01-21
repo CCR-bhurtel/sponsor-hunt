@@ -19,14 +19,14 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <ContentWrapper>
-                <div className="mt-4 md:mt-[4rem]">
+                <div className="mt-[2rem] md:mt-[4rem]">
                     <Hero />
                     <section className="misc mt-4">
-                        <div className="font-bold text-[1.3rem] md:text-[1.4rem] lg:text-[1.6rem] leading-tight">
+                        <div className="font-bold text-[1.3rem] lsm:text-[1.6rem] lg:text-[1.6rem] leading-tight">
                             Securing paid collabs can take hours...or days. <br />
                             <span className="gradient-text"> Land more deals, faster.</span>
                         </div>
-                        <div className="mt-2 max-w-[490px] md:text-[1.2rem]">
+                        <div className="mt-2 max-w-[490px] leading-tight lsm:text-[1.3rem] md:text-[1.2rem]">
                             <SmallText
                                 textApply={false}
                                 text={
