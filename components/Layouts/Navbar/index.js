@@ -21,7 +21,7 @@ function Navbar() {
     };
     return (
         <div className="navContainer w-[100%] flex items-center justify-center mt-[1rem]">
-            <div className="wrapper flex items-center justify-between w-[90%]">
+            <div className="wrapper flex items-center justify-between w-[95%]">
                 <div className="logo">
                     <Logo />
                 </div>
