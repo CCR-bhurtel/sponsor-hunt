@@ -7,7 +7,7 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 import { useEffect } from 'react';
 function MyApp({ Component, pageProps }) {
     return (
-        <div className="font-Inter">
+        <div className="font-Inter overflow-x-hidden">
             <Elements stripe={stripePromise}>
                 <Navbar />
                 <div className="content  flex items-center justify-center ">

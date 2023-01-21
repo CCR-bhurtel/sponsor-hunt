@@ -9,7 +9,7 @@ function Feature({ feature: { text1, gradientText, text2, img } }) {
                     <SmallMix text1={text1} gradientText={gradientText} text2={text2} />
                 </div>
             </div>
-            <div className="imagePart bg-Cultured rounded-xl w-[50%] flex items-center">
+            <div className="imagePart bg-Cultured rounded-xl w-[50%] flex items-center mr-2 ml-2">
                 <img className="w-full" src={img} alt={text1} />
             </div>
         </div>

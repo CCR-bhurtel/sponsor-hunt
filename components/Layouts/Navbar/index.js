@@ -21,7 +21,7 @@ function Navbar() {
     };
     return (
         <div className="navContainer w-[100%] flex items-center justify-center mt-[1rem]">
-            <div className="wrapper flex items-center justify-between w-[90%]">
+            <div className="wrapper flex items-center justify-between w-[95%]">
                 <div className="logo">
                     <Logo />
                 </div>
@@ -44,7 +44,7 @@ function Navbar() {
                     >
                         <span className="text-white mb-[2px]">+</span>
                     </div>
-                    <NavItem text={'Pricing'} link={'/pricing'} />
+                    <NavItem text={'Pricing'} link={'/#plans'} />
                     <NavItem text={'Login'} link={'/login'} />
 
                     <SecondaryButton text={'View live demo'} />
