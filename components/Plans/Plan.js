@@ -30,7 +30,7 @@ function Plan({ details: { plan_id, name, desc, features, price } }) {
         <div
             className={`${
                 name === 'Beginner' ? 'bg-Lotion border-[1px]' : 'gradient-bg-card'
-            }  border-Iron  rounded-xl p-4 `}
+            }  border-Iron  rounded-xl p-4 mt-4 `}
         >
             <Transition show={isModalOpen} as={Fragment}>
                 <Dialog onClose={closeModalHandler}>
