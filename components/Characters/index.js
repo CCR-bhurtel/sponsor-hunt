@@ -39,21 +39,23 @@ function Characters() {
     ];
     return (
         <div className="p-6 rounded-md  min-w-[100vw]  bg-Cultured">
-            <div className="sectionText mt-4">
-                <SectionTitle text={'Save time on outreach and focus on creating'} />
-                <div className="mt-2">
-                    <SmallText
-                        text={
-                            'Find brand deals and land clients on easy mode. We give you right brands and email to reach out to.'
-                        }
-                    />
+            <ContentWrapper>
+                <div className="sectionText mt-4">
+                    <SectionTitle text={'Save time on outreach and focus on creating'} />
+                    <div className="mt-2">
+                        <SmallText
+                            text={
+                                'Find brand deals and land clients on easy mode. We give you right brands and email to reach out to.'
+                            }
+                        />
+                    </div>
                 </div>
-            </div>
-            <div className="characters flex flex-col  mt-2 md:grid md:grid-cols-3 gap-2 ">
-                {characters.map((character, i) => (
-                    <Character key={i} item={character} />
-                ))}
-            </div>
+                <div className="characters flex flex-col  mt-2 md:grid md:grid-cols-3 gap-2 ">
+                    {characters.map((character, i) => (
+                        <Character key={i} item={character} />
+                    ))}
+                </div>
+            </ContentWrapper>
         </div>
     );
 }

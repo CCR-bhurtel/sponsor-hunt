@@ -52,7 +52,7 @@ function PrimaryButton({ text, link, source }) {
             />
             <button
                 onClick={changeRotateHandler}
-                className={`bg-Orch btn px-[1rem] py-[0.7rem] text-[1rem] rounded-[10px] font-semibold tracking-wide btn ${
+                className={`bg-Orch btn px-[1rem] p-[1rem] text-[1.2rem] rounded-[10px] font-semibold tracking-wide btn ${
                     translate && 'translate-y-2'
                 }  ${isRotate && 'animate-[rotate_0.6s_ease-in-out]'}`}
             >
