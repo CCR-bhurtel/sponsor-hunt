@@ -35,7 +35,7 @@ function Plans() {
     ];
     return (
         <div id="plans">
-            <div className="text-part--plans max-w-[26rem]">
+            <div className="text-part--plans ">
                 <SectionTitle text={'Unlock more paid brand deals for your content'} />
                 <div className="mt-2 lsm:text-[1.2rem] md:text-[1.4rem]">
                     <SmallText

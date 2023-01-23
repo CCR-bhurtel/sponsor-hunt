@@ -41,12 +41,12 @@ function Features() {
         },
     ];
     return (
-        <div className="mt-[3rem] mb-[1rem]">
+        <div className=" mb-[1rem]">
             <div className="max-w-[340px] md:max-w-[500px]">
                 <SectionTitle text={'Super charge your paid brand deal outreach'} />
             </div>
             <div className="flex justify-center items-center">
-                <div className="flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center justify-center lg:max-w-[95%] gap-4">
                     {items.map((item, i) => (
                         <Feature feature={item} key={i} index={i} />
                     ))}

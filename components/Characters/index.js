@@ -42,7 +42,7 @@ function Characters() {
             <ContentWrapper>
                 <div className="sectionText mt-4">
                     <SectionTitle text={'Save time on outreach and focus on creating'} />
-                    <div className="mt-2">
+                    <div className="mt-2 lg:max-w-[36rem] leading-tight">
                         <SmallText
                             text={
                                 'Find brand deals and land clients on easy mode. We give you right brands and email to reach out to.'
@@ -50,7 +50,7 @@ function Characters() {
                         />
                     </div>
                 </div>
-                <div className="characters flex flex-col  mt-2 md:grid md:grid-cols-3 gap-2 ">
+                <div className="characters flex flex-col  mt-2 md:grid md:grid-cols-3 gap-2 lg:gap-4 ">
                     {characters.map((character, i) => (
                         <Character key={i} item={character} />
                     ))}

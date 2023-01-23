@@ -9,6 +9,7 @@ import Plans from '../components/Plans';
 import AwareText from '../components/AwareText.js';
 import ContentWrapper from '../components/Layouts/ContentWrapper';
 import Hero from '../components/Hero';
+import SectionWrapper from '../components/Layouts/SectionWrapper';
 
 export default function Home() {
     return (
@@ -21,8 +22,8 @@ export default function Home() {
             <ContentWrapper>
                 <div className="mt-[2rem] md:mt-[4rem]">
                     <Hero />
-                    <section className="misc mt-4">
-                        <div className="font-bold text-[1.3rem] lsm:text-[1.6rem] lg:text-[1.6rem] leading-tight">
+                    <SectionWrapper>
+                        <div className="font-bold text-[1.3rem] lsm:text-[1.7rem] md:text-[1.9rem] lg:max-w-[30rem] leading-tight">
                             Securing paid collabs can take hours...or days. <br />
                             <span className="gradient-text"> Land more deals, faster.</span>
                         </div>
@@ -34,26 +35,28 @@ export default function Home() {
                                 }
                             />
                         </div>
-                    </section>
-                    <section className="mt-[2rem]">
+                    </SectionWrapper>
+                    <SectionWrapper>
                         <HowItWorks />
-                    </section>
-                    <section className="mt-4">
+                    </SectionWrapper>
+                    <SectionWrapper>
                         <Features />
-                    </section>
+                    </SectionWrapper>
                 </div>
             </ContentWrapper>
 
-            <section className="mt-4 bg-Cultured rounded-lg ">
-                <Characters />
-            </section>
+            <SectionWrapper>
+                <div className=" bg-Cultured rounded-lg ">
+                    <Characters />
+                </div>
+            </SectionWrapper>
             <ContentWrapper>
-                <section className="mt-4">
+                <SectionWrapper>
                     <Plans />
-                </section>
-                <section className="mt-4">
+                </SectionWrapper>
+                <SectionWrapper>
                     <AwareText />
-                </section>
+                </SectionWrapper>
             </ContentWrapper>
         </div>
     );
