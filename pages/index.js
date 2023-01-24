@@ -10,6 +10,7 @@ import AwareText from '../components/AwareText.js';
 import ContentWrapper from '../components/Layouts/ContentWrapper';
 import Hero from '../components/Hero';
 import SectionWrapper from '../components/Layouts/SectionWrapper';
+import Script from 'next/script';
 
 export default function Home() {
     return (
@@ -19,6 +20,7 @@ export default function Home() {
                 <meta name="description" content="sponsor hunt" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
             <ContentWrapper>
                 <div className="mt-[2rem] md:mt-[4rem]">
                     <Hero />
@@ -58,6 +60,7 @@ export default function Home() {
                     <AwareText />
                 </SectionWrapper>
             </ContentWrapper>
+            <Script src="https://kit.fontawesome.com/b704955f26.js" crossOrigin="anonymous" />
         </div>
     );
 }

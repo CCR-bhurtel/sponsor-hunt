@@ -13,6 +13,7 @@ module.exports = {
                 Smoke: '#737373',
                 Cream: '#FEFEFF',
                 Lotion: '#FAFAFA',
+                Sky: '#06a9c9',
             },
             screens: {
                 sm: '320px',

@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import AuthModal from '../../Auth/AuthModal';
 import SecondaryButton from '../../Button/Secondary';
 import Logo from '../../Logo';
 import NavItem from './NavItem';
 
 function Navbar() {
     const [showNav, setShowNav] = useState(false);
+    const [showAuth, setShowAuth] = useState(false);
+    const [authType, setAuthType] = useState('login');
+
+    const changeFormHandler = (formType) => {
+        setAuthType(formType);
+    };
 
     useEffect(() => {
         if (showNav) {
@@ -19,6 +26,13 @@ function Navbar() {
     const showNavHandler = () => {
         setShowNav(true);
     };
+    const showAuthModal = () => {
+        setShowAuth(true);
+    };
+    const closeAuthModal = () => {
+        setShowAuth(false);
+    };
+
     return (
         <div className="navContainer w-[100%] flex items-center justify-center mt-[1rem]">
             <div className="wrapper flex items-center justify-between w-[95%]">
@@ -45,7 +59,14 @@ function Navbar() {
                         <span className="text-white mb-[2px]">+</span>
                     </div>
                     <NavItem text={'Pricing'} link={'/#plans'} />
-                    <NavItem text={'Login'} link={'/login'} />
+                    <NavItem onClick={showAuthModal} text={'Login'} />
+
+                    <AuthModal
+                        isModalOpen={showAuth}
+                        formType={authType}
+                        changeFormHandler={changeFormHandler}
+                        closeModalHandler={closeAuthModal}
+                    />
 
                     <SecondaryButton text={'View live demo'} />
                 </nav>
