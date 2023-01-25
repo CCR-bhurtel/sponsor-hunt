@@ -42,7 +42,7 @@ function Login({ changeFormHandler }) {
                 </span>
             </p>
             <p className="mt-2">OR</p>
-            <div className="group mt-4  flex flex-row gap-4 bg-Iron w-[70%] items-center justify-center p-2 cursor-pointer group hover:bg-Orch rounded-md">
+            <div className="group mt-4  flex flex-row gap-4 bg-Iron w-[80%] items-center justify-center p-2 cursor-pointer group hover:bg-Orch rounded-md">
                 <div>
                     <img className="w-[30px] h-[30px]" src={google.src} alt="google icon" />
                 </div>
