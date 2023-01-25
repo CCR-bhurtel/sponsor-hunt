@@ -10,7 +10,7 @@ function Signup({ changeFormHandler }) {
     return (
         <div className="flex items-center flex-col pb-[1rem]">
             <h2 className="gradient-text text-[2rem]">Signup</h2>
-            <div className="form-groups w-[80%]">
+            <div className="form-groups w-[90%] md:w-[80%]">
                 <InputField
                     type="email"
                     name="email"
@@ -49,7 +49,7 @@ function Signup({ changeFormHandler }) {
                 </span>
             </p>
             <p className="mt-2">OR</p>
-            <div className="group mt-4  flex flex-row gap-4 bg-Iron w-[70%] items-center justify-center p-2 cursor-pointer group hover:bg-Orch rounded-md">
+            <div className="group mt-4  flex flex-row gap-4 bg-Iron w-[90%] md:w-[80%] items-center justify-center p-2 cursor-pointer group hover:bg-Orch rounded-md">
                 <div>
                     <img className="w-[30px] h-[30px]" src={google.src} alt="google icon" />
                 </div>
